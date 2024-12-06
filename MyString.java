@@ -112,7 +112,12 @@ public class MyString {
     public static String spacedString(String str) {
         String newString = "";
         for (int i =0; i < str.length(); i++) {
-            newString = newString +" "+ str.charAt(i);
+            if (i!=str.length()) {
+            newString = newString + str.charAt(i)+" "; 
+            }
+            else {
+                newString = newString + str.charAt(i); 
+            }
         }
         return newString;
     }
@@ -156,24 +161,22 @@ public class MyString {
      * @return a string consisting of str1 minus all the characters of str2
      */
     public static String remove(String str1, String str2) {
-
-        if (str2 == "") {
+        if (str2.isEmpty()) {
             return str1;
-           } 
-
-        boolean[] addedChars = new boolean[str1.length()]; // arry to track on the letters
+        }
+    
+        boolean[] letters = new boolean[26]; // מערך בוליאני לעקוב אחר אותיות שנראו
         StringBuilder result = new StringBuilder();
     
         for (int i = 0; i < str1.length(); i++) {
             char c = str1.charAt(i);
-            if (countChar(str2, c) == 0 && addedChars[i]==false) {
-               result.append(c);
-               addedChars[i] = true; // mark that the letter alredy added
+            int index = c - 'a'; // מחשבים את האינדקס של האות במערך
+            if (countChar(str2, c) == 0 && !letters[index]) {
+                result.append(c);
+                letters[index] = true;
             }
         }
-    
         return result.toString();
-
     }
 
     /**
@@ -194,19 +197,3 @@ public class MyString {
 }
     
 
-/*for (int i=0; i<str1.length(); i++) {
-    char c = str1.charAt(i);
-    int index = c - 'a'; 
-
-   if (countChar(str2, str1.charAt(i)) >= 1 && arr[i]==false) {
-       counter ++;
-       arr[index] = true;
-   }
-   }
-
-   if (counter == str1.length()) {
-       return true;
-   }
-
-   return false;
-} */
