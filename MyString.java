@@ -9,6 +9,7 @@ public class MyString {
         String sub1 = "spa";
         String sub2 = "hel";
         String sub3 = "abc";
+        String sub4 = "pass";
         String space = "space";
         String silent = "silent";
         String ch = "a";
@@ -24,6 +25,7 @@ public class MyString {
         System.out.println(subsetOf(empty, hello)); //true
         System.out.println(subsetOf(sub1, space)); //true 
         System.out.println(subsetOf(ch, silent)); //false
+        System.out.println(subsetOf(sub4, space)); //false
 
         System.out.println(spacedString(hello)); // h e l l o
         System.out.println(spacedString(silent)); //expected: s i l e n t
@@ -60,7 +62,7 @@ public class MyString {
             }
         }
 
-        return count;
+        return count; 
     }
 
     /** Returns true if str1 is a subset string str2, false otherwise
@@ -75,26 +77,29 @@ public class MyString {
      * @return true is str1 is a subset of str2, false otherwise
      */
     public static boolean subsetOf(String str1, String str2) {
-         int count = 0;
-         str1 = str1.toLowerCase();
-         str2 = str2.toLowerCase();
-
+        
         if (str1.equals("")) {
             return true;
         }
 
-        for (int i=0; i<str1.length(); i++) {
-        if (countChar(str2, str1.charAt(i)) >= 1) {
-            count ++;
+        for(int i=0; i<=str2.length()-str1.length(); i++)
+        {
+            boolean b=true;
+                for(int j=0; j<str1.length(); j++)
+                {
+                    if(str2.charAt(j+i)!=str1.charAt(j))
+                    {
+                        b=false;
+                        break;
+                    }
+                }
+            if(b)
+            {
+                return true;
+            }
         }
-        }
-
-        if (count == str1.length()) {
-            return true;
-        }
-
         return false;
-    } 
+    }
 
     /** Returns a string which is the same as the given string, with a space
      * character inserted after each character in the given string, except
@@ -188,3 +193,20 @@ public class MyString {
     }    
 }
     
+
+/*for (int i=0; i<str1.length(); i++) {
+    char c = str1.charAt(i);
+    int index = c - 'a'; 
+
+   if (countChar(str2, str1.charAt(i)) >= 1 && arr[i]==false) {
+       counter ++;
+       arr[index] = true;
+   }
+   }
+
+   if (counter == str1.length()) {
+       return true;
+   }
+
+   return false;
+} */
