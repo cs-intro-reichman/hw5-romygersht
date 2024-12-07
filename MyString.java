@@ -14,7 +14,7 @@ public class MyString {
         String space = "space";
         String silent = "silent";
         String ch = "a";
-         
+        
 
         System.out.println(countChar(hello, 'h')); //1
         System.out.println(countChar(hello, 'l')); //2
@@ -80,25 +80,28 @@ public class MyString {
      * @return true is str1 is a subset of str2, false otherwise
      */
     public static boolean subsetOf(String str1, String str2) {
-     
+        boolean letter = true;
         if (str1.equals("")) {
             return true;
         }
-            for(int i=0; i<=str2.length()-str1.length(); i++)
-            {
-                int j = 0; 
-                for(; j<str1.length() && i+j<str2.length(); j++) 
+        for(int i=0; i<=str2.length()-str1.length(); i++)
+        {
+        
+                for(int j=0; j<str1.length(); j++)
                 {
-                    if (str1.charAt(j)!=str2.charAt(i+j)) {
-                        break; 
+                   
+                    if (str1.charAt(i)!=str2.charAt(i)) {
+                        return false;
+                    }
+                    else {
+                       letter = true;
                     }
                 }
-                if (j == str1.length()) { 
+                if (letter == true) {
                     return true;
                 }
             }
             return false;
-        
     }
 
     /** Returns a string which is the same as the given string, with a space
@@ -110,7 +113,7 @@ public class MyString {
      * @return a string consisting of the characters of str, separated by spaces.
      */
     public static String spacedString(String str) {
-        String newString = "";
+        String newString = " ";
         if (str == "") {
             return " ";
         }
