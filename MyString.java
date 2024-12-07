@@ -115,7 +115,7 @@ public class MyString {
     public static String spacedString(String str) {
         String newString = "";
         for (int i =0; i < str.length(); i++) {
-            if (i!=str.length()) {
+            if (i!=str.length()-1) {
             newString = newString + str.charAt(i)+" "; 
             }
             else {
@@ -167,18 +167,20 @@ public class MyString {
         if (str2.isEmpty()) {
             return str1;
         }
-    
-        boolean[] letters = new boolean[26]; // מערך בוליאני לעקוב אחר אותיות שנראו
         StringBuilder result = new StringBuilder();
+        boolean[] letters = new boolean[256];
     
         for (int i = 0; i < str1.length(); i++) {
             char c = str1.charAt(i);
-            int index = c - 'a'; // מחשבים את האינדקס של האות במערך
-            if (countChar(str2, c) == 0 && !letters[index]) {
-                result.append(c);
-                letters[index] = true;
+            int count1 = countChar(str1, c);
+            int count2 = countChar(str2, c);
+    
+            if (count1 > count2 && !letters[c]) {
+                result.append(String.valueOf(c).repeat(count1 - count2));
+                letters[c] = true;
             }
         }
+    
         return result.toString();
     }
 
