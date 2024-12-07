@@ -113,9 +113,9 @@ public class MyString {
      * @return a string consisting of the characters of str, separated by spaces.
      */
     public static String spacedString(String str) {
-        String newString = " ";
+        String newString = "";
         if (str == "") {
-            return newString;
+            return " ";
         }
         for (int i =0; i < str.length(); i++) {
             if (i!=str.length()-1) {
