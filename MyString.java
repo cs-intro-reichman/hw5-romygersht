@@ -14,7 +14,7 @@ public class MyString {
         String space = "space";
         String silent = "silent";
         String ch = "a";
-        
+         
 
         System.out.println(countChar(hello, 'h')); //1
         System.out.println(countChar(hello, 'l')); //2
@@ -27,7 +27,7 @@ public class MyString {
         System.out.println(subsetOf(sub1, space)); //true 
         System.out.println(subsetOf(ch, silent)); //false
         System.out.println(subsetOf(sub4, space)); //false
-        System.out.println(subsetOf(sub5, space)); //false
+        System.out.println(subsetOf(sub5, space)); //true
 
 
         System.out.println(spacedString(hello)); // h e l l o
@@ -80,7 +80,7 @@ public class MyString {
      * @return true is str1 is a subset of str2, false otherwise
      */
     public static boolean subsetOf(String str1, String str2) {
-
+     
         if (str1.equals("")) {
             return true;
         }
