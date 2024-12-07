@@ -108,7 +108,7 @@ public class MyString {
     public static String spacedString(String str) {
         String newString = "";
         if (str == "") {
-            return " ";
+            return "";
         }
         for (int i =0; i < str.length(); i++) {
             if (i!=str.length()-1) {
