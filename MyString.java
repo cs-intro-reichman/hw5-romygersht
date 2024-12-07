@@ -113,13 +113,16 @@ public class MyString {
      * @return a string consisting of the characters of str, separated by spaces.
      */
     public static String spacedString(String str) {
-        String newString = "";
+        String newString = " ";
         if (str == "") {
-            return " ";
+            return newString;
         }
         for (int i =0; i < str.length(); i++) {
-            if (i!=str.length()) {
+            if (i!=str.length()-1) {
             newString = newString + str.charAt(i)+" "; 
+            }
+            else {
+                newString = newString + str.charAt(i); 
             }
         }
         return newString;
