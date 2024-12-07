@@ -80,29 +80,22 @@ public class MyString {
      * @return true is str1 is a subset of str2, false otherwise
      */
     public static boolean subsetOf(String str1, String str2) {
-        boolean letter = true;
-        if (str1.equals("")) {
+     /*    if (str1.equals("")) {
             return true;
+        }*/
+        if (str1.length() > str2.length()) {
+            return false;
         }
-        for(int i=0; i<=str2.length()-str1.length(); i++)
+        for(int i=0; i<str1.length(); i++)
         {
-        
-                for(int j=0; j<str1.length(); j++)
-                {
-                   
-                    if (str1.charAt(i)!=str2.charAt(i)) {
+            if (countChar(str1, str1.charAt(i))> countChar(str2, str2.charAt(i))) {
                         return false;
                     }
-                    else {
-                       letter = true;
-                    }
-                }
-                if (letter == true) {
-                    return true;
-                }
-            }
-            return false;
+
+       } 
+            return true;
     }
+    
 
     /** Returns a string which is the same as the given string, with a space
      * character inserted after each character in the given string, except
