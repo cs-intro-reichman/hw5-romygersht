@@ -10,10 +10,11 @@ public class MyString {
         String sub2 = "hel";
         String sub3 = "abc";
         String sub4 = "pass";
+        String sub5 = "sap";
         String space = "space";
         String silent = "silent";
         String ch = "a";
-
+        
 
         System.out.println(countChar(hello, 'h')); //1
         System.out.println(countChar(hello, 'l')); //2
@@ -26,6 +27,8 @@ public class MyString {
         System.out.println(subsetOf(sub1, space)); //true 
         System.out.println(subsetOf(ch, silent)); //false
         System.out.println(subsetOf(sub4, space)); //false
+        System.out.println(subsetOf(sub5, space)); //true
+
 
         System.out.println(spacedString(hello)); // h e l l o
         System.out.println(spacedString(silent)); //expected: s i l e n t
@@ -77,28 +80,28 @@ public class MyString {
      * @return true is str1 is a subset of str2, false otherwise
      */
     public static boolean subsetOf(String str1, String str2) {
-        
+        boolean letter = true;
         if (str1.equals("")) {
             return true;
         }
-
         for(int i=0; i<=str2.length()-str1.length(); i++)
         {
-            boolean b=true;
+        
                 for(int j=0; j<str1.length(); j++)
                 {
-                    if(str2.charAt(j+i)!=str1.charAt(j))
-                    {
-                        b=false;
-                        break;
+                   
+                    if (str1.charAt(i)!=str2.charAt(i)) {
+                        return false;
+                    }
+                    else {
+                       letter = true;
                     }
                 }
-            if(b)
-            {
-                return true;
+                if (letter == true) {
+                    return true;
+                }
             }
-        }
-        return false;
+            return false;
     }
 
     /** Returns a string which is the same as the given string, with a space
