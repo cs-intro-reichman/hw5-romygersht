@@ -83,8 +83,8 @@ public class Scrabble {
 	// Creates a random hand of length (HAND_SIZE - 2) and then inserts
 	// into it, at random indexes, the letters 'a' and 'e'
 	// (these two vowels make it easier for the user to construct words)
-	public static String createHand(String hand) {
-		
+	public static String createHand() {
+		String hand = "";
 		hand = MyString.randomStringOfLetters(HAND_SIZE -2);
 		hand = MyString.insertRandomly('a', hand);
 		hand =  MyString.insertRandomly('e', hand);
@@ -155,7 +155,7 @@ public class Scrabble {
 				break; 
 			}
 			if (input.equals("n")) {
-            playHand(createHand(input));
+            playHand(createHand());
 			}
 			else{
 				System.out.println("ERROR");
