@@ -66,20 +66,22 @@ public class Scrabble {
 		int count3 = MyString.countChar(word, 'n');;
 		int count4 = MyString.countChar(word, 'i');
 
-        if (count1 > 0 && count2 > 0 && count3 > 0 && count4 > 0) {
+		for (int i = 0; i < word.length(); i++) {
+			char letter = word.charAt(i);
+			int index = letter - 'a'; 
+          score += (SCRABBLE_LETTER_VALUES[index]);
+		}
+		score = score*word.length();
+	
+		if (count1 > 0 && count2 > 0 && count3 > 0 && count4 > 0) {
 			score += 1000;	
 		}
 
 		if (word.length() == HAND_SIZE) {
            score += 50;
 		}
-		for (int i = 0; i < word.length(); i++) {
-			char letter = word.charAt(i);
-			int index = letter - 'a'; 
-          score += (SCRABBLE_LETTER_VALUES[index]);
-		}
 
-		return score*word.length();
+		return score;
 	}
 
 	// Creates a random hand of length (HAND_SIZE - 2) and then inserts
