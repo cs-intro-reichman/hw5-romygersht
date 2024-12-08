@@ -124,8 +124,8 @@ public class Scrabble {
 			  }
 			  else {
 				if (MyString.subsetOf(input, hand) == true) {
-			hand = MyString.remove(hand, input); //remove the word from the hand
 			wordScore = wordScore(input); //update the score
+			hand = MyString.remove(hand, input); //remove the word from the hand
 			Totalscore +=wordScore;
             System.out.println( input +" earnd "+ wordScore +" points. score: "+ Totalscore +" points");
 				}
