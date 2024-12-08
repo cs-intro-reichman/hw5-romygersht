@@ -74,7 +74,9 @@ public class Scrabble {
            score += 50;
 		}
 		for (int i = 0; i < word.length(); i++) {
-          score += (SCRABBLE_LETTER_VALUES[i]);
+			char letter = word.charAt(i);
+			int index = letter - 'a'; 
+          score += (SCRABBLE_LETTER_VALUES[index]);
 		}
 
 		return score*word.length();
