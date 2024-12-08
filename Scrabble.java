@@ -74,10 +74,10 @@ public class Scrabble {
            score += 50;
 		}
 		for (int i = 0; i < word.length(); i++) {
-          score += (SCRABBLE_LETTER_VALUES[i])*(word.length());
+          score += (SCRABBLE_LETTER_VALUES[i]);
 		}
 
-		return score;
+		return score*word.length();
 	}
 
 	// Creates a random hand of length (HAND_SIZE - 2) and then inserts
