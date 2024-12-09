@@ -163,9 +163,9 @@ public class Scrabble {
 			if (input.equals("n")) {
             playHand(createHand());
 			}
-			else{
-				System.out.println("ERROR");
-			}
+			//else{
+				//System.out.println("ERROR");
+			//}
 		}
 	}
 
