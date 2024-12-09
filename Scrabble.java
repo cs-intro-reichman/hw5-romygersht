@@ -118,7 +118,7 @@ public class Scrabble {
 				break;
 			  }
 			  if (isWordInDictionary(input)==false) {
-				System.out.println("No such word in the dictionary. try again.");
+				System.out.println("No such word in the dictionary. Try again.");
 		/*		System.out.println("Current Hand: " + MyString.spacedString(hand));
 				System.out.println("Enter a word, or '.' to finish playing this hand:"); */
 			  }
@@ -127,10 +127,10 @@ public class Scrabble {
 			wordScore = wordScore(input); //update the score
 			hand = MyString.remove(hand, input); //remove the word from the hand
 			Totalscore +=wordScore;
-            System.out.println( input +" earnd "+ wordScore +" points. score: "+ Totalscore +" points\n");
+            System.out.println( input +" earnd "+ wordScore +" points. Score: "+ Totalscore +" points\n");
 				}
 				else {
-					System.out.println("Invalid word. try again.");
+					System.out.println("Invalid word. Try again.");
 				}
 			  }
 		}
