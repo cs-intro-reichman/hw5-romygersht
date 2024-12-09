@@ -61,10 +61,10 @@ public class Scrabble {
 	// If the word includes the sequence "runi", adds 1000 points to the game.
 	public static int wordScore(String word) {
 		int score = 0;
-		int count1 = MyString.countChar(word, 'r');
-		int count2 = MyString.countChar(word, 'u');
-		int count3 = MyString.countChar(word, 'n');;
-		int count4 = MyString.countChar(word, 'i');
+		//int count1 = MyString.countChar(word, 'r');
+		//int count2 = MyString.countChar(word, 'u');
+		//int count3 = MyString.countChar(word, 'n');;
+		//int count4 = MyString.countChar(word, 'i');
 
 		for (int i = 0; i < word.length(); i++) {
 			char letter = word.charAt(i);
@@ -73,7 +73,8 @@ public class Scrabble {
 		}
 		score = score*word.length();
 	
-		if (count1 > 0 && count2 > 0 && count3 > 0 && count4 > 0) {
+		//if (count1 > 0 && count2 > 0 && count3 > 0 && count4 > 0) {
+		if (MyString.subsetOf("runi", word)){
 			score += 1000;	
 		}
 
