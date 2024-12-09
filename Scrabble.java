@@ -68,8 +68,8 @@ public class Scrabble {
 
 		for (int i = 0; i < word.length(); i++) {
 			char letter = word.charAt(i);
-			int index = letter - 'a'; 
-          score += (SCRABBLE_LETTER_VALUES[index]);
+			//int index = letter - 'a'; 
+          score += (SCRABBLE_LETTER_VALUES[letter - 'a']);
 		}
 		score = score*word.length();
 	
