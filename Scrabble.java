@@ -102,7 +102,46 @@ public class Scrabble {
     // 1. The letters in the word are removed from the hand, which becomes smaller.
     // 2. The user gets the Scrabble points of the entered word.
     // 3. The user is prompted to enter another word, or '.' to end the hand. 
-	public static void playHand(String hand) {
+
+public static void playHand(String hand) {
+        int score = 0;
+        // Declares the variable in to refer to an object of type In, and initializes it to represent
+        // the stream of characters coming from the keyboard. Used for reading the user's inputs.   
+        In in = new In();
+        while (hand.length() > 0) {
+            System.out.println("Current Hand: " + MyString.spacedString(hand));
+            System.out.println("Enter a word, or '.' to finish playing this hand:");
+            // Reads the next "token" from the keyboard. A token is defined as a string of 
+            // non-whitespace characters. Whitespace is either space characters, or  
+            // end-of-line characters.
+            String input = in.readString();
+            //// Replace the following break statement with code
+            //// that completes the hand playing loop
+            if (input.equals(".")) {
+                break;
+            }
+            boolean isValid = isWordInDictionary(input) && MyString.subsetOf(input, hand);
+            if (isValid) {
+                hand = MyString.remove(hand, input);
+                score += wordScore(input);
+                System.out.println(input + " earned " + wordScore(input) + " points. Score: " + score + " points\n");
+            } else {
+                System.out.println("Invalid word. Try again.");
+            }
+
+        }
+        if (hand.length() == 0) {
+            System.out.println("Ran out of letters. Total score: " + score + " points");
+        } else {
+            System.out.println("End of hand. Total score: " + score + " points");
+        }
+    }
+
+
+
+
+
+/* 	public static void playHand(String hand) {
 		//int n = hand.length();
 		int Totalscore = 0;
 		
@@ -135,7 +174,7 @@ public class Scrabble {
 					System.out.println("No such word in the dictionary. Try again.");
 					/*			System.out.println("Current Hand: " + MyString.spacedString(hand));
 								System.out.println("Enter a word, or '.' to finish playing this hand:"); */	
-				}
+/* 			}
 			}
 			else {
 					System.out.println("Invalid word. Try again.");
@@ -149,7 +188,7 @@ public class Scrabble {
 		//} else {
 		//	System.out.println("End of hand. Total score: " + Totalscore + " points");
 		}
-	}
+	}*/
 
 	// Plays a Scrabble game. Prompts the user to enter 'n' for playing a new hand, or 'e'
 	// to end the game. If the user enters any other input, writes an error message.
