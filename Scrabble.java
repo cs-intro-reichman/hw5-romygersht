@@ -142,9 +142,9 @@ public class Scrabble {
 				}
 			  }
 		
-		if (hand.length() == 0) {
+		if (hand.isEmpty()) {
 	       // System.out.println("Ran out of letters. Total score: " + Totalscore + " points");
-		   System.out.println("End of hand. Total score: " + Totalscore + " points");
+		   System.out.println("End of hand. Total score: " + Totalscore + " points\n");
 
 		//} else {
 		//	System.out.println("End of hand. Total score: " + Totalscore + " points");
