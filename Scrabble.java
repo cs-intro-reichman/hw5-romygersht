@@ -118,7 +118,7 @@ public class Scrabble {
 			String input = in.readString();
 			
 				if (input.equals(".")) {
-					System.out.println("End of hand. Total score: " + Totalscore + " points\n");
+					System.out.println("End of hand. Total score: " + Totalscore + " points");
 				break;
 			  }
 			  if (MyString.subsetOf(input, hand) == true) {
