@@ -116,9 +116,9 @@ public class Scrabble {
 			// non-whitespace characters. Whitespace is either space characters, or  
 			// end-of-line characters.
 			String input = in.readString();
-			//if (input.charAt(0) == '.') {
+			
 				if (input.equals(".")) {
-					System.out.println("End of hand. Total score: " + Totalscore + " points");
+					System.out.println("End of hand. Total score: " + Totalscore + " points\n");
 				break;
 			  }
 			  if (MyString.subsetOf(input, hand) == true) {
